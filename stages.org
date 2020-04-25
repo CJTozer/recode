@@ -1,0 +1,45 @@
+* Hello World
+** Spec
+   - Respond 200 OK to =/status= endpoint on port 8000
+** Tests
+*** TODO Mainline call to =/status=
+*** TODO Wrong port
+*** TODO Wrong URL
+*** TODO Ensure it stays up
+
+* Tokens for all!
+** Spec
+   - Give out unique tokens for calls to =/authorize=
+   - Tokens spec:
+     - 16-characters a-z, 0-9 (case-insensitive)
+     - Must be unique - two calls to =/authorize= should produce different results
+** Tests
+*** TODO Mainline - get a token, check the value matches spec
+*** TODO Get lots of tokens, check for duplicates
+
+* Tokens for just me!
+** Spec
+   - =/authorize= now needs a body, with the user ID in it
+   - Only provide a token for user =1337haXXor=
+   - Respond 401 Unauthorized for all other users
+** Tests
+*** TODO Re-check =/status= endpoint
+*** TODO Get token for correct ID
+*** TODO Get 401 for incorrect ID
+*** TODO Don't specify an ID - omit from body (might be valid to return a non-401 error here because it's malformed?) & blank string
+*** TODO Check users are case-sensitive
+*** TODO Check tokens still unique
+*** TODO Check user with suffix/prefix like =1337haXXor =, null chars etc. if possible
+
+* Check the invites list
+** Spec
+   - Database of users, has API XXX
+   - Calls to =/authorize= should check user exists in database
+     - If so, provide a unique token as before
+     - If not, reject with 401
+** TODO Tests
+
+* Cache a user's token
+** Spec
+   - Tokens are valid for 10s
+   - Calls to =/authorize= for valid users must return the same token if still valid, or a new one if it's expired

@@ -22,3 +22,13 @@ To achieve this, my idea is to:
 * Combined, this allows significant flexibility in language choice, and allows the problems to build upon earlier foundations
 * Further down the line, it may be that the coder has to produce several containers which talk to each other
 * There will be testing focus on real-world scenarios - like one of the data sources being unavailable, or the process under test being restarted...
+
+## The Experience
+
+Ideally, the experience for the coder here would be:
+
+* Getting to grips with putting things together as a service
+* Some interesting problems to solve in the "business logic"
+* Learn that testing one's own code is key, and that thinking about what to test up-front makes the process much easier
+  * When submitting a container for testing, you get the first error in a descriptive format, not the full UT output
+  * You get the logs from your container to debug with, nothing more

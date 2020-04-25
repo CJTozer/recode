@@ -1,0 +1,15 @@
+openapi: "3.0.0"
+
+info:
+  title: recode
+  version: "1.0"
+servers:
+  - url: http://localhost:8000
+
+paths:
+  /status:
+    get:
+      summary: Get current status of the service
+      responses:
+        200:
+          description: Service is running
